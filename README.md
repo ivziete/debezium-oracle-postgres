@@ -2,6 +2,7 @@
 #Descargar y Descomprimir el servidor oracle dockerizado
 
 https://drive.google.com/file/d/1I57rzHABegBqtWyuI24OsPABvET3oWxZ/view?usp=sharing
+
 sudo tar xf oracle.xz
 
 #Descomprimir instantclient en la carpeta debezium-jdbc-es
