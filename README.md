@@ -45,6 +45,5 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @source.json
 ```
 
-Verificar nuevamente postgres ya tendra la tabla EMP
+Verificar nuevamente postgres ya tendra la tabla EMP, puede usar el esquema `demobld.sql` para insertar data de nuevo.
 
-Si desea llenar datos puede usar este demo
