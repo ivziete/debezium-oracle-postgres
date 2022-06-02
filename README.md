@@ -24,7 +24,7 @@ sudo tar xf oracle.xz
 ```
 tar xf instantclient_12_2.xz
 ```
-## Arrancar Entorno Debezium y dbs
+## Arrancar Entorno Debezium, Oracle y Postgres
 ```
 export DEBEZIUM_VERSION=1.3
 docker-compose up -d
