@@ -1,4 +1,7 @@
 # Debezium oracle postgres
+
+En oracle se tiene un esquema llamado debezium que contiene el siguiente script `demobld.sql` del cual la tabla EMP es la que se sincronizara a postgres,creando la estructura de la tabla y sincronizando los insert, update y delete hechos en esa tabla.
+
 ## Descargar y Descomprimir el servidor oracle dockerizado
 
 * https://drive.google.com/file/d/1I57rzHABegBqtWyuI24OsPABvET3oWxZ/view?usp=sharing
@@ -30,6 +33,8 @@ docker-compose logs -f
 ## Verificar la base de datos postgres \dt+ no tendra tablas
 ```
 docker-compose  exec postgres bash -c 'psql -U $POSTGRES_USER $POSTGRES_DB'
+\dt+
+select * from "EMP" 
 ```
 ## Registrar el Destino postgres
 ```
@@ -39,3 +44,7 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 ```
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @source.json
 ```
+
+Verificar nuevamente postgres ya tendra la tabla EMP
+
+Si desea llenar datos puede usar este demo
