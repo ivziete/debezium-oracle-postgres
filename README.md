@@ -4,8 +4,18 @@ En oracle se tiene un esquema llamado debezium que contiene el siguiente script 
 
 ## Descargar y Descomprimir el servidor oracle dockerizado
 
+Clonar este repositorio
+
+```
+git clone git@github.com:ivziete/debezium-oracle-postgres.git
+cd debezium-oracle-postgres
+```
+
+Dentro de esta carpeta descargar el servidor oracle ya configurado
+
 * https://drive.google.com/file/d/1I57rzHABegBqtWyuI24OsPABvET3oWxZ/view?usp=sharing
 
+Descomprimir como usuario root
 ```
 sudo tar xf oracle.xz
 ```
