@@ -14,6 +14,7 @@
 -- SQL> START demobld.sql
 --
 --
+ALTER SESSION SET NLS_LANGUAGE=ENGLISH;
 SET TERMOUT ON
 PROMPT Building demonstration tables. Please wait.
 SET TERMOUT OFF
