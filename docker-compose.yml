@@ -38,6 +38,7 @@ services:
      - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
+     - ADVERTISED_HOST_NAME=10.75.23.249
 #  mysql:
 #    image: quay.io/debezium/example-mysql:${DEBEZIUM_VERSION}
 #    ports:

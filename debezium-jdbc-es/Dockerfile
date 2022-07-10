@@ -41,3 +41,4 @@ USER kafka
 COPY instantclient_12_2/* $INSTANT_CLIENT_DIR
 COPY instantclient_12_2/xstreams.jar /kafka/libs
 COPY instantclient_12_2/ojdbc8.jar /kafka/libs
+COPY jcustenborder-kafka-connect-transform-common-0.1.0.54/lib/* /kafka/libs/
