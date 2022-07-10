@@ -40,11 +40,18 @@ docker-compose logs -f
 * User: debezium 
 * Pass: dbz
 
+## Usuario Postgres
+
+* Host: localhost:5432
+* DB: inventory
+* User: postgresuser
+* Pass: postgrespw
+
 ## Verificar la base de datos postgres \dt+ no tendra tablas
 ```
 docker-compose  exec postgres bash -c 'psql -U $POSTGRES_USER $POSTGRES_DB'
 \dt+
-select * from "EMP" 
+select * from emp 
 ```
 ## Registrar el Destino postgres
 ```
