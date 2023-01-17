@@ -13,7 +13,7 @@ cd debezium-oracle-postgres
 
 Dentro de esta carpeta descargar el servidor oracle ya configurado
 
-* https://drive.google.com/file/d/1I57rzHABegBqtWyuI24OsPABvET3oWxZ/view?usp=sharing
+* https://drive.google.com/file/d/1UOyUz3dQT6QdXczv7-HDbZpmohRbXjXd/view?usp=sharing
 
 Descomprimir como usuario root
 ```
