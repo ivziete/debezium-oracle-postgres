@@ -68,6 +68,11 @@ services:
     volumes:
      - ./postgres-data:/var/lib/postgresql 
 
+  apicurio:
+    image: apicurio/apicurio-registry-mem:2.2.5.Final
+    ports:
+     - 8080:8080
+
   connect:
     image: debezium/connect-jdbc-es:${DEBEZIUM_VERSION}
     build:
@@ -81,6 +86,7 @@ services:
      - kafka
      - oracle
      - postgres
+     - apicurio
     environment:
      - BOOTSTRAP_SERVERS=kafka:9092
      - GROUP_ID=1
@@ -88,4 +94,9 @@ services:
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_source_connect_statuses
      - LD_LIBRARY_PATH=/instant_client
+     - ENABLE_APICURIO_CONVERTERS=true   
+     - KEY_CONVERTER=io.confluent.connect.avro.AvroConverter
+     - VALUE_CONVERTER=io.confluent.connect.avro.AvroConverter
+     - CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL=http://apicurio:8080/apis/ccompat/v6
+     - CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL=http://apicurio:8080/apis/ccompat/v6
 

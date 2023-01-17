@@ -12,7 +12,7 @@
           "database.history.kafka.bootstrap.servers" : "kafka:9092",
           "database.history.kafka.topic": "schema-changes.debezium",
           "database.oracle.version": "11",
-          "table.whitelist": "debezium.emp",
+          "table.whitelist": "debezium.emp,debezium.salgrade",
           "transforms": "route",
           "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
           "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
