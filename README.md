@@ -40,11 +40,18 @@ docker-compose logs -f
 * User: debezium 
 * Pass: dbz
 
+## Usuario Postgres
+
+* Host: localhost:5432
+* DB: inventory
+* User: postgresuser
+* Pass: postgrespw
+
 ## Verificar la base de datos postgres \dt+ no tendra tablas
 ```
 docker-compose  exec postgres bash -c 'psql -U $POSTGRES_USER $POSTGRES_DB'
 \dt+
-select * from "EMP" 
+select * from emp 
 ```
 ## Registrar el Destino postgres
 ```
@@ -55,7 +62,7 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @source.json
 ```
 
-Verificar nuevamente postgres ya tendra la tabla EMP, puede usar el esquema `demobld.sql` para referencia.
+Verificar nuevamente postgres ya tendra la tabla emp, puede usar el esquema `demobld.sql` para referencia.
 
 Pueden ver un demo de como se ve aqui:
 * https://www.youtube.com/watch?v=5g6O7GLF35U

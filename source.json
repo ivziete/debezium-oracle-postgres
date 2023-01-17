@@ -13,7 +13,10 @@
           "database.history.kafka.topic": "schema-changes.debezium",
           "database.oracle.version": "11",
           "table.whitelist": "debezium.emp,debezium.salgrade",
-          "transforms": "route",
+          "transforms.changeTopicCase.type" : "com.github.jcustenborder.kafka.connect.transform.common.ChangeTopicCase",
+          "transforms.changeTopicCase.from" : "UPPER_UNDERSCORE",
+          "transforms.changeTopicCase.to" : "LOWER_UNDERSCORE",
+          "transforms": "changeTopicCase,route",
           "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
           "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
           "transforms.route.replacement": "$3"
