@@ -1,6 +1,6 @@
 # Debezium oracle postgres
 
-En oracle se tiene un esquema llamado debezium que contiene el siguiente script `demobld.sql` del cual la tabla EMP es la que se sincronizara a postgres,creando la estructura de la tabla y sincronizando los insert, update y delete hechos en esa tabla.
+En oracle se tiene un esquema llamado debezium que contiene el siguiente script `demobld.sql` del cual la tabla EMP y SALGRADE es la que se sincronizara a postgres,creando la estructura de la tabla y sincronizando los insert, update y delete hechos en esa tabla.
 
 ## Descargar y Descomprimir el servidor oracle dockerizado
 
