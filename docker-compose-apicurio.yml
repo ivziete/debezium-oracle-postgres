@@ -99,4 +99,20 @@ services:
      - VALUE_CONVERTER=io.confluent.connect.avro.AvroConverter
      - CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL=http://apicurio:8080/apis/ccompat/v6
      - CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL=http://apicurio:8080/apis/ccompat/v6
-
+  ksqldb:
+    image: confluentinc/ksqldb-server:0.9.0
+    container_name: ksqldb
+    depends_on:
+      - kafka
+      - connect
+    ports:
+      - "8088:8088"
+    environment:
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_BOOTSTRAP_SERVERS: kafka:9092
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+      KSQL_KSQL_CONNECT_URL: http://connect:8083
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://apicurio:8080/apis/ccompat/v6
+      KSQL_KSQL_SERVICE_ID: confluent_rmoff_01
+      KSQL_KSQL_HIDDEN_TOPICS: '^_.*'
