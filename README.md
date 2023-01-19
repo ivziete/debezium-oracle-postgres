@@ -80,3 +80,25 @@ Verificar nuevamente postgres ya tendra la tabla emp y salgrade, puede usar el e
 
 Pueden ver un demo de como se ve aqui:
 * https://www.youtube.com/watch?v=5g6O7GLF35U
+
+## Ingresar con KSQL
+```
+docker-compose -f docker-compose-apicurio.yml exec ksqldb ksql http://ksqldb:8088
+```
+
+## Ver los topicos registrados
+```
+LIST TOPICS;
+print 'emp' from beginning;
+print 'salgrade' from beginning;
+```
+
+## Algunas consultas que se pueden realizar
+```
+SET 'auto.offset.reset' = 'earliest';
+create stream emp_stream_dbz_src with (KAFKA_TOPIC='emp',value_format='AVRO');
+create stream salgrade_stream_dbz_src with (KAFKA_TOPIC='salgrade',value_format='AVRO');
+select op,after->empno,before->sal as before_sal,after->sal as after_sal from emp_stream_dbz_src where empno=7934 emit changes;
+select op,after->empno,before->sal as before_sal,after->sal as after_sal from emp_stream_dbz_src where after->empno=7934 emit changes;
+```
+
