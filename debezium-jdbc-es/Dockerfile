@@ -12,7 +12,8 @@ RUN cd /kafka/libs && curl -sO https://jdbc.postgresql.org/download/postgresql-$
 
 # Deploy Kafka Connect JDBC
 RUN mkdir $KAFKA_CONNECT_JDBC_DIR && cd $KAFKA_CONNECT_JDBC_DIR &&\
-	curl -sO https://packages.confluent.io/maven/io/confluent/kafka-connect-jdbc/$KAFKA_JDBC_VERSION/kafka-connect-jdbc-$KAFKA_JDBC_VERSION.jar
+	curl -sO https://packages.confluent.io/maven/io/confluent/kafka-connect-jdbc/$KAFKA_JDBC_VERSION/kafka-connect-jdbc-$KAFKA_JDBC_VERSION.jar  
+
 
 # Deploy Confluent Elasticsearch sink connector
 RUN mkdir $KAFKA_CONNECT_ES_DIR && cd $KAFKA_CONNECT_ES_DIR &&\
@@ -27,8 +28,7 @@ RUN mkdir $KAFKA_CONNECT_ES_DIR && cd $KAFKA_CONNECT_ES_DIR &&\
         curl -sO https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar && \
         curl -sO https://repo1.maven.org/maven2/io/searchbox/jest-common/6.3.1/jest-common-6.3.1.jar && \
         curl -sO https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar && \
-        curl -sO https://repo1.maven.org/maven2/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar
-
+        curl -sO https://repo1.maven.org/maven2/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar 
 
 ENV INSTANT_CLIENT_DIR=/instant_client/
  
@@ -42,3 +42,4 @@ COPY instantclient_12_2/* $INSTANT_CLIENT_DIR
 COPY instantclient_12_2/xstreams.jar /kafka/libs
 COPY instantclient_12_2/ojdbc8.jar /kafka/libs
 COPY jcustenborder-kafka-connect-transform-common-0.1.0.54/lib/* /kafka/libs/
+COPY mongodb-kafka-connect-mongodb-1.9.1/lib/* /kafka/libs/
