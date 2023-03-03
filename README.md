@@ -101,4 +101,11 @@ create stream salgrade_stream_dbz_src with (KAFKA_TOPIC='salgrade',value_format=
 select op,after->empno,before->sal as before_sal,after->sal as after_sal from emp_stream_dbz_src where empno=7934 emit changes;
 select op,after->empno,before->sal as before_sal,after->sal as after_sal from emp_stream_dbz_src where after->empno=7934 emit changes;
 ```
+## MongodbSINK
+```
+docker-compose -f docker-compose-apicurio.yml up -d --build
+```
+```
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @jdbc-sink-mongo.json
+```
 
