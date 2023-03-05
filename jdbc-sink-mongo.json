@@ -1,11 +1,12 @@
 {
-  "name": "mongo-tutorial-sink2",
+  "name": "mongo-tutorial-sink9",
   "config": {
     "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
     "topics": "emp",
     "connection.uri": "mongodb://mongodb",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.url": "http://apicurio:8080/apis/ccompat/v6",
     "value.converter.schemas.enable": false,
     "database": "Sink",
     "collection": "emp"
